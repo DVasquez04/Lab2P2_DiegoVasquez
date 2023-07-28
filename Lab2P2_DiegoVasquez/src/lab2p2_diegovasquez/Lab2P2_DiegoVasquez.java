@@ -140,11 +140,12 @@ public class Lab2P2_DiegoVasquez {
                                         }//fin case 1
                                         break;
                                         case 2:{
+                                            sc = new Scanner(System.in);
                                             if(contChefsTotal == 0){
                                                 System.out.println("Primero Ingrese un chef con la opcion 1 antes de modificar :p");
                                             }else{
                                                 System.out.println("=Modificar Chefs= \n");
-                                                System.out.println("Ingrese el chef que desea eliminar: ");
+                                                System.out.println("Ingrese el chef que desea modificar: ");
                                                 PrintChefs(chefs);
                                                 int p = lea.nextInt();
                                                 while(p<=0 || p > chefs.size()){
@@ -333,6 +334,7 @@ public class Lab2P2_DiegoVasquez {
                                         }
                                         break;
                                         case 2:{
+                                            sc = new Scanner(System.in);
                                             //modificar
                                             if(contMeserosTotal == 0){
                                                 System.out.println("Primero Ingrese un Mesero con la opcion 1 antes de modificar :p");
@@ -524,6 +526,7 @@ public class Lab2P2_DiegoVasquez {
                                         }//fin case
                                         break;
                                         case 2:{
+                                            sc = new Scanner(System.in);
                                             if(contBartTotal == 0){
                                                 System.out.println("Primero Ingrese un Bartender con la opcion 1 antes de modificar :p");
                                             }else{
@@ -688,6 +691,7 @@ public class Lab2P2_DiegoVasquez {
                                         }//fin case
                                         break;
                                         case 2:{
+                                            sc = new Scanner(System.in);
                                             if(contMesasTotal == 0){
                                                 System.out.println("Primero Ingrese una mesa con la opcion 1 antes de modificar :p");
                                             }else{
@@ -702,20 +706,51 @@ public class Lab2P2_DiegoVasquez {
                                                 p--;
                                                 System.out.println("Ha decidido modificar la mesa: "+(p+1));
                                                 System.out.println("=modificar Mesas=\n");
-                                                
+                                                System.out.println("Ingrese el nuevo num de platos: ");
+                                                int platos = lea.nextInt();
+                                                System.out.println("Ingrese el nuevo num de utensilios: ");
+                                                int uten = lea.nextInt();
+                                                double precio = lea.nextDouble();
+                                                mesas.get(p).setNumeroPlatos(platos);
+                                                mesas.get(p).setNumeroUtensilios(uten);
+                                                mesas.get(p).setPrecio(precio);
+                                                System.out.println("Mesa modificada exitosamente");
                                             }
                                         }//fin case
                                         break;
                                         case 3:{
-                                            
+                                            if(contMesasTotal == 0){
+                                                System.out.println("Primero Ingrese una mesa con la opcion 1 antes de eliminar :p");
+                                            }else{
+                                                System.out.println("=ELIMINAR MESAS=");
+                                                PrintMesas(mesas);
+                                                System.out.println("Ingrese que Mesa desea eliminar: ");
+                                                int p = lea.nextInt();
+                                                while(p<=0 || p > mesas.size()){
+                                                    System.out.println("Posicion invalida... \n Intentelo de nuevo: ");
+                                                    p = lea.nextInt();
+                                                }
+                                                p--;
+                                                mesas.remove(p);
+                                                contMesasTotal--;
+                                                System.out.println("Mesa eliminada exitosamente!");
+                                            }
                                         }//fin case
                                         break;
                                         case 4:{
-                                            
+                                            if(contMesasTotal == 0){
+                                                System.out.println("Primero Ingrese una mesa con la opcion 1 antes de listar :p");
+                                            }else{
+                                                PrintMesas(mesas);
+                                            }
                                         }//fin case
                                         break;
                                         case 5:{
-                                            
+                                            contPrecioMesas = 0;
+                                            for (int i = 0; i < mesas.size(); i++) {
+                                                contPrecioMesas+= mesas.get(i).getPrecio();
+                                            }
+                                            System.out.println("Precio total de mesas: "+contPrecioMesas);
                                         }//fin case
                                         break;
                                         case 6:{
